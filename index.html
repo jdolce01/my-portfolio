@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julia Dolce | Research Portfolio</title>
+    <title>Julia Dolce | Research & Technical Portfolio</title>
+    <!-- Google Fonts for an elegant, publication-style look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #3d4146; /* Matching your slate gray visual identity */
+            --bg-color: #3d4146; /* Slate gray visual identity */
             --text-light: #ffffff;
             --text-muted: #bdc3c7;
             --accent-border: rgba(255, 255, 255, 0.2);
@@ -61,82 +62,65 @@
             opacity: 1;
         }
 
-        /* Hero / Interactive Element Section */
+        /* Hero Text Area Style */
         .hero-section {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 4rem;
-            align-items: center;
-            padding: 5rem 0;
+            padding: 5rem 0 3rem 0;
             border-bottom: 1px solid var(--accent-border);
         }
 
         .hero-text h1 {
             font-size: 3.5rem;
             line-height: 1.1;
+            margin-bottom: 1.5rem;
         }
 
         .hero-text p {
             color: var(--text-muted);
             font-size: 1.2rem;
-            max-width: 480px;
+            max-width: 750px;
+            line-height: 1.5;
         }
 
-        /* Interactive Showcase Frame & Companion Sidecar Box */
-        .game-showcase {
-            display: flex;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 1.2rem;
-            border-radius: 4px;
-            border: 1px solid var(--accent-border);
-            gap: 1rem;
+        /* About Me Layout Style */
+        .about-section {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            gap: 4rem;
             align-items: center;
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--accent-border);
         }
 
-        .game-frame {
-            flex: 2.5;
-            background: #1a1a1a;
-            aspect-ratio: 4/3;
+        .profile-frame {
+            width: 100%;
+            aspect-ratio: 4/5;
+            border: 1px solid var(--accent-border);
             border-radius: 2px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.02);
         }
 
-        .game-frame iframe {
+        .profile-frame object, .profile-frame embed {
             width: 100%;
             height: 100%;
-            border: none;
+            object-fit: cover;
         }
 
-        .animation-sidecar {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            border-left: 1px solid var(--accent-border);
-            padding-left: 1rem;
+        .about-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
         }
 
-        .animation-sidecar img {
-            width: 100%;
-            max-width: 110px;
-            height: auto;
-            image-rendering: pixelated;
-        }
-
-        .animation-sidecar span {
-            font-size: 0.75rem;
+        .about-text p {
             color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 0.5rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            text-align: justify;
         }
 
-        /* Manuscripts & Research Projects Section */
+        /* Manuscripts & Research Index Style */
         .papers-section {
-            padding: 5rem 0;
+            padding: 5rem 0 3rem 0;
         }
 
         .papers-section h2 {
@@ -151,8 +135,8 @@
         }
 
         .paper-entry:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
+            border-bottom: 1px solid var(--accent-border);
+            padding-bottom: 4rem;
             margin-bottom: 0;
         }
 
@@ -179,7 +163,7 @@
             max-width: 850px;
         }
 
-        /* Publication Action Buttons */
+        /* Button Action Links */
         .btn-group {
             display: flex;
             gap: 1rem;
@@ -214,7 +198,69 @@
             background-color: transparent;
         }
 
-        /* Footer Elements */
+        /* Interactive Showcase Section */
+        .game-section {
+            padding: 4rem 0 6rem 0;
+        }
+
+        .game-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .game-showcase {
+            display: grid;
+            grid-template-columns: 1.4fr 0.6fr;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 4px;
+            border: 1px solid var(--accent-border);
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .game-frame {
+            background: #1a1a1a;
+            aspect-ratio: 16/9;
+            border-radius: 2px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .game-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .animation-sidecar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-left: 1px solid var(--accent-border);
+            padding-left: 2rem;
+            height: 100%;
+        }
+
+        .animation-sidecar img {
+            width: 100%;
+            max-width: 140px;
+            height: auto;
+            image-rendering: pixelated;
+        }
+
+        .animation-sidecar span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        /* Footer Style Rules */
         footer {
             border-top: 1px solid var(--accent-border);
             padding: 3rem 0;
@@ -231,9 +277,15 @@
         }
 
         @media (max-width: 900px) {
-            .hero-section {
+            .about-section, .game-showcase {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
+            }
+            .animation-sidecar {
+                border-left: none;
+                border-top: 1px solid var(--accent-border);
+                padding-left: 0;
+                padding-top: 2rem;
             }
             .hero-text h1 {
                 font-size: 2.8rem;
@@ -250,6 +302,7 @@
 
     <div class="container">
         
+        <!-- HEADER TOP NAVIGATION -->
         <header>
             <div class="brand-title" style="font-size: 1.2rem; letter-spacing: 0.5px; text-transform: none;">Julia Dolce</div>
             <div class="social-icons">
@@ -259,33 +312,56 @@
             </div>
         </header>
 
+        <!-- HERO INTRODUCTORY SPLIT SECTION -->
         <section class="hero-section">
             <div class="hero-text">
                 <h1>Hello, welcome to my portfolio.</h1>
                 <p>
-                    An index of empirical research papers, advanced machine learning implementations, and relational system architectures.
+                    An index of peer-reviewed biomedical manuscripts, empirical data science frameworks, and relational system architectures[cite: 1, 3, 4].
                 </p>
-            </div>
-            
-            <div class="game-showcase">
-                <div class="game-frame">
-                    <iframe src="documents/team10farewell.webloc" title="Farewell Project Dashboard View"></iframe>
-                </div>
-                <div class="animation-sidecar">
-                    <img src="assets/Tufts2024fall_Farewell_anim.gif" alt="Farewell Companion Character Grid Graphic">
-                    <span>Farewell</span>
-                </div>
             </div>
         </section>
 
+        <!-- ABOUT ME PROFILE SECTION -->
+        <section class="about-section">
+            <div class="profile-frame">
+                <object data="assets/my_pic.pdf" type="application/pdf">
+                    <embed src="assets/my_pic.pdf" type="application/pdf" />
+                </object>
+            </div>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>
+                    I am an entry-level Data Scientist and Data Analyst passionate about uncovering actionable insights within highly volatile, high-frequency datasets. Leveraging a strong foundational background spanning predictive modeling, machine learning pipelines, and relational database systems, I am looking for full-time opportunities where I can apply robust statistical frameworks to solve complex, data-driven engineering challenges.
+                </p>
+                <p>
+                    Outside of data science, I am an avid outdoor enthusiast with a deep commitment to endurance athletics. I am big on long-distance running—having competed actively as an athlete throughout college—and am currently training for the upcoming Philadelphia Marathon Weekend. Whether I am exploring mountain trails on a weekend hike, chasing mile splits, or working towards my long-term goal of completing a full Ironman triathlon, I bring the same focus, stamina, and consistency to my professional work as I do to my training.
+                </p>
+            </div>
+        </section>
+
+        <!-- MAIN RESEARCH MANUSCRIPTS REGISTRY -->
         <section class="papers-section">
             <h2>Selected Research & Manuscripts</h2>
+
+            <!-- NEW PEER-REVIEWED ENTRY: Nature Genetics Co-Authored Paper -->
+            <div class="paper-entry">
+                <div class="paper-meta">Peer-Reviewed Publication | Nature Genetics</div>
+                <h3>Challenges and future directions for Mendelian randomization</h3>
+                <div class="paper-abstract">
+                    Served as a contributing author on this collaborative review examining the evolving methodologies, structural constraints, and causal inference limitations within modern Mendelian randomization (MR) frameworks[cite: 1]. Contributed directly to the pre-publication pipeline by coordinating primary data collection workloads and establishing data aggregation protocols[cite: 4]. Designed clear, high-impact data visualizations to communicate complex statistical boundaries and causal frameworks effectively for peer-reviewed distribution[cite: 4].
+                </div>
+                <div class="btn-group">
+                    <a class="paper-link" href="https://www.nature.com/articles/s41588-026-02546-6" target="_blank">View Article on Nature</a>
+                </div>
+            </div>
             
+            <!-- ENTRY 2: Polymarket API Analysis -->
             <div class="paper-entry">
                 <div class="paper-meta">Empirical FinTech & Market Microstructure</div>
                 <h3>To What Extent Does Market Categorization and Volatility Influence the Degree of Price Inefficiency in Prediction Markets?</h3>
                 <div class="paper-abstract">
-                    This paper investigates the conditions under which decentralized prediction platforms exhibit structural anomalies. Using a real-time live WebSocket pipeline querying high-frequency limit order books from the Polymarket API, a dataset comprising 1,159,154 rows of bid-ask updates tracking 294 asset ecosystems was collected. Shifting the research framework from strict binary arbitrage detection criteria to a continuous variable tracking deviations from pricing parity, we mitigate class evaluation imbalances across multiple platform divisions. By training an optimized 400-tree Stratified Random Forest Regressor framework across high-dimensional volatility metrics, we isolate strong deterministic trends in price discovery, proving that lower liquidity thresholds and staggered information transfer parameters allow pop culture markets to retain significantly higher persistent inefficiency scores.
+                    This paper investigates the conditions under which decentralized prediction platforms exhibit structural anomalies[cite: 4]. Using a real-time live WebSocket pipeline querying high-frequency limit order books from the Polymarket API, a dataset comprising 1,159,154 rows of bid-ask updates tracking 294 asset ecosystems was collected[cite: 4]. Shifting the research framework from strict binary arbitrage detection criteria to a continuous variable tracking deviations from pricing parity, we mitigate class evaluation imbalances across multiple platform divisions[cite: 4]. By training an optimized 400-tree Stratified Random Forest Regressor framework across high-dimensional volatility metrics, we isolate strong deterministic trends in price discovery, proving that lower liquidity thresholds and staggered information transfer parameters allow pop culture markets to retain significantly higher persistent inefficiency scores[cite: 4].
                 </div>
                 <div class="btn-group">
                     <a class="paper-link" href="documents/prediction_market_capstone.pdf" target="_blank">Read Full Paper</a>
@@ -293,6 +369,7 @@
                 </div>
             </div>
 
+            <!-- ENTRY 3: K-Deep Simplex Comparison Framework -->
             <div class="paper-entry">
                 <div class="paper-meta">Manifold Learning & High-Dimensional Tabular Forecasting</div>
                 <h3>K-Deep Simplex a Local Dictionary and Sparse Learning Algorithm: Application for Price Prediction of Used Cars</h3>
@@ -304,6 +381,7 @@
                 </div>
             </div>
 
+            <!-- ENTRY 4: PostgreSQL Database System Design -->
             <div class="paper-entry">
                 <div class="paper-meta">Relational Infrastructure & Database Concurrency</div>
                 <h3>Relational Architecture Implementation for High-Concurrency Live Ticketing Systems</h3>
@@ -317,6 +395,21 @@
 
         </section>
 
+        <!-- VIDEO GAME SHOWCASE INTEGRATION -->
+        <section class="game-section">
+            <h2>Interactive Media & Creative Works</h2>
+            <div class="game-showcase">
+                <div class="game-frame">
+                    <iframe src="https://html5.itch.zone/html5-embed/12396495/2840502" title="Farewell Game Build View" allowfullscreen></iframe>
+                </div>
+                <div class="animation-sidecar">
+                    <img src="assets/Tufts2024fall_Farewell_anim.gif" alt="Farewell Walking Sprite Animation Sheet Sample">
+                    <span>Farewell</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- WEBSITE FOOTER BAR -->
         <footer>
             <div>&copy; 2026 Julia Dolce. All rights reserved.</div>
             <div>Hosted on <a href="https://aws.amazon.com/amplify/" target="_blank">AWS Amplify</a></div>
