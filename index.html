@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julia Dolce | Research & Projects Index</title>
+    <title>Julia Dolce | Research Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #3d4146; /* Deep slate gray from your inspiration layout */
+            --bg-color: #3d4146; /* Matching your slate gray visual identity */
             --text-light: #ffffff;
             --text-muted: #bdc3c7;
             --accent-border: rgba(255, 255, 255, 0.2);
@@ -61,7 +61,7 @@
             opacity: 1;
         }
 
-        /* Hero Layout with Embedded Game Container */
+        /* Hero / Interactive Element Section */
         .hero-section {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
@@ -82,7 +82,7 @@
             max-width: 480px;
         }
 
-        /* Interactive Game Canvas + Companion Box */
+        /* Interactive Showcase Frame & Companion Sidecar Box */
         .game-showcase {
             display: flex;
             background: rgba(255, 255, 255, 0.03);
@@ -134,7 +134,7 @@
             margin-top: 0.5rem;
         }
 
-        /* Academic / Papers Section */
+        /* Manuscripts & Research Projects Section */
         .papers-section {
             padding: 5rem 0;
         }
@@ -179,16 +179,21 @@
             max-width: 850px;
         }
 
-        /* Styled button link to open local PDF file */
+        /* Publication Action Buttons */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
         .paper-link {
             display: inline-flex;
             align-items: center;
             color: var(--text-light);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             border: 1px solid var(--text-light);
-            padding: 0.6rem 1.5rem;
+            padding: 0.5rem 1.4rem;
             border-radius: 20px;
             transition: background-color 0.2s, color 0.2s;
         }
@@ -196,6 +201,17 @@
         .paper-link:hover {
             background-color: var(--text-light);
             color: var(--bg-color);
+        }
+
+        .paper-link.secondary {
+            border-color: rgba(255, 255, 255, 0.4);
+            color: var(--text-muted);
+        }
+
+        .paper-link.secondary:hover {
+            border-color: var(--text-light);
+            color: var(--text-light);
+            background-color: transparent;
         }
 
         /* Footer Elements */
@@ -222,6 +238,11 @@
             .hero-text h1 {
                 font-size: 2.8rem;
             }
+            .btn-group {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -232,6 +253,7 @@
         <header>
             <div class="brand-title" style="font-size: 1.2rem; letter-spacing: 0.5px; text-transform: none;">Julia Dolce</div>
             <div class="social-icons">
+                <a href="https://github.com/jdolce01/my-portfolio" target="_blank">GitHub Profile</a>
                 <a href="https://linkedin.com" target="_blank">LinkedIn</a>
                 <a href="mailto:juliadolce@example.com">Email</a>
             </div>
@@ -241,16 +263,16 @@
             <div class="hero-text">
                 <h1>Hello, welcome to my portfolio.</h1>
                 <p>
-                    An index of selected academic manuscripts, algorithmic data science frameworks, and collaborative installations.
+                    An index of empirical research papers, advanced machine learning implementations, and relational system architectures.
                 </p>
             </div>
             
             <div class="game-showcase">
                 <div class="game-frame">
-                    <iframe src="https://team10farewell.itch.io/farewell" title="Farewell Game Window"></iframe>
+                    <iframe src="documents/team10farewell.webloc" title="Farewell Project Dashboard View"></iframe>
                 </div>
                 <div class="animation-sidecar">
-                    <img src="assets/Tufts2024fall_Farewell_anim.gif" alt="Farewell Animation Box">
+                    <img src="assets/Tufts2024fall_Farewell_anim.gif" alt="Farewell Companion Character Grid Graphic">
                     <span>Farewell</span>
                 </div>
             </div>
@@ -263,9 +285,12 @@
                 <div class="paper-meta">Empirical FinTech & Market Microstructure</div>
                 <h3>To What Extent Does Market Categorization and Volatility Influence the Degree of Price Inefficiency in Prediction Markets?</h3>
                 <div class="paper-abstract">
-                    This paper investigates the conditions under which decentralized prediction platforms exhibit structural anomalies. Using a real-time live WebSocket pipeline querying high-frequency limit order books from the Polymarket API, a dataset comprising 1,159,154 rows of bid-ask updates tracking 294 asset ecosystems was collected. Shifting the research framework from a strict binary arbitrage detection criteria to a continuous variable tracking deviations from pricing parity, we mitigate class evaluation imbalances across multiple platform divisions. By training an optimized 400-tree Stratified Random Forest Regressor framework across high-dimensional volatility metrics, we isolate strong deterministic trends in price discovery, proving that lower liquidity thresholds and staggered information transfer parameters allow pop culture markets to retain significantly higher persistent inefficiency scores.
+                    This paper investigates the conditions under which decentralized prediction platforms exhibit structural anomalies. Using a real-time live WebSocket pipeline querying high-frequency limit order books from the Polymarket API, a dataset comprising 1,159,154 rows of bid-ask updates tracking 294 asset ecosystems was collected. Shifting the research framework from strict binary arbitrage detection criteria to a continuous variable tracking deviations from pricing parity, we mitigate class evaluation imbalances across multiple platform divisions. By training an optimized 400-tree Stratified Random Forest Regressor framework across high-dimensional volatility metrics, we isolate strong deterministic trends in price discovery, proving that lower liquidity thresholds and staggered information transfer parameters allow pop culture markets to retain significantly higher persistent inefficiency scores.
                 </div>
-                <a class="paper-link" href="documents/prediction_market_capstone.pdf" target="_blank">Read Full Paper</a>
+                <div class="btn-group">
+                    <a class="paper-link" href="documents/prediction_market_capstone.pdf" target="_blank">Read Full Paper</a>
+                    <a class="paper-link secondary" href="https://github.com/jdolce01/my-portfolio/tree/main/polymarket_codebase" target="_blank">View Python Codebase</a>
+                </div>
             </div>
 
             <div class="paper-entry">
@@ -274,11 +299,30 @@
                 <div class="paper-abstract">
                     Supervised regression tasks mapping heterogeneous features present unique statistical extraction and downstream interpretability hurdles. This study provides a rigorous quantitative framework benchmarking traditional linear dimension compression models like Principal Component Analysis (PCA) and parts-based Non-Negative Matrix Factorization (NMF) against a state-of-the-art sparse dictionary alternative, K-Deep Simplex (KDS). Evaluated across a parsed dataset of 425,000 tabular vehicle records, we apply k-means clustering strategies to construct local archetype indices alongside Kraemer's algorithm to compute probability vector paths across bounded simplex dimensions. Downstream evaluation using Gradient-Boosting Regressors demonstrates that KDS isolates descriptive, intuitive variable associations without degrading global pricing predictive performance metrics, delivering a superior accuracy-interpretability balance.
                 </div>
-                <a class="paper-link" href="documents/k_deep_simplex_paper.pdf" target="_blank">Read Full Paper</a>
+                <div class="btn-group">
+                    <a class="paper-link" href="documents/k_deep_simplex_paper.pdf" target="_blank">Read Full Paper</a>
+                </div>
             </div>
 
             <div class="paper-entry">
-                <div class="paper-meta">Relational Systems & Relational Optimization</div>
+                <div class="paper-meta">Relational Infrastructure & Database Concurrency</div>
                 <h3>Relational Architecture Implementation for High-Concurrency Live Ticketing Systems</h3>
                 <div class="paper-abstract">
-                    This system
+                    This architectural system summary details the structural design of a transactional database schema constructed in PostgreSQL to accurately model highly volatile live event ticketing frameworks. By building complex primary and foreign key mapping dependencies across user lists, artist classifications, capacities, and venue regions, the database implements automated referential data integrity protections. Crucially, the engine programs strict structural isolation limits and conditional triggers via PL/pgSQL procedural definitions to prevent database session locking collisions, manage seat charts dynamically, and enforce multi-session execution thresholds safely.
+                </div>
+                <div class="btn-group">
+                    <a class="paper-link" href="documents/ticketmaster_sample.sql" target="_blank">View SQL Script</a>
+                </div>
+            </div>
+
+        </section>
+
+        <footer>
+            <div>&copy; 2026 Julia Dolce. All rights reserved.</div>
+            <div>Hosted on <a href="https://aws.amazon.com/amplify/" target="_blank">AWS Amplify</a></div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
