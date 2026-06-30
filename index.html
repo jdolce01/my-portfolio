@@ -108,13 +108,13 @@
             overflow: hidden;
             background: #ffffff;
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            pointer-events: none; /* Disables right-click, zooming, and scrolling on the static file container */
         }
 
-        .profile-frame object, .profile-frame embed {
+        .profile-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .about-text h2 {
@@ -187,7 +187,7 @@
             opacity: 0.85;
         }
 
-        /* Static PDF Plot Ingestion Frame */
+        /* Static Graphic Frame for Plots */
         .static-graph-frame {
             width: 100%;
             aspect-ratio: 1/1;
@@ -196,14 +196,14 @@
             overflow: hidden;
             background: #ffffff;
             box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-            pointer-events: none; /* Completely locks the element, stripping zoom/scroll capabilities */
             user-select: none;
         }
 
-        .static-graph-frame object, .static-graph-frame embed {
+        .static-graph-frame img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            display: block;
         }
 
         /* Action Link Buttons */
@@ -241,7 +241,7 @@
             background-color: transparent;
         }
 
-        /* Interactive Showcase Footer Area (Shifted to End) */
+        /* Showcase Footer Area */
         .game-section {
             padding: 4rem 0 6rem 0;
         }
@@ -265,17 +265,18 @@
         }
 
         .game-frame {
-            background: #1a1a1a;
+            background: #fcfcfc;
             aspect-ratio: 16/9;
-            border-radius: 2px;
+            border-radius: 4px;
             overflow: hidden;
             border: 1px solid var(--accent-border);
         }
 
-        .game-frame iframe {
+        .game-frame img {
             width: 100%;
             height: 100%;
-            border: none;
+            object-fit: cover;
+            display: block;
         }
 
         .animation-sidecar {
@@ -303,6 +304,13 @@
             letter-spacing: 1.5px;
             margin-top: 1rem;
             font-weight: 600;
+        }
+
+        .game-meta-box {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
         }
 
         /* Footer Structural Boundaries */
@@ -353,7 +361,7 @@
     <div class="container">
         
         <header>
-            <div class="brand-title">Rebecca W. Chan style / Julia Dolce</div>
+            <div class="brand-title">Julia Dolce</div>
             <div class="social-icons">
                 <a href="https://github.com/jdolce01/my-portfolio" target="_blank">GitHub</a>
                 <a href="https://linkedin.com" target="_blank">LinkedIn</a>
@@ -372,9 +380,7 @@
 
         <section class="about-section">
             <div class="profile-frame">
-                <object data="assets/my_pic.pdf" type="application/pdf">
-                    <embed src="assets/my_pic.pdf" type="application/pdf" />
-                </object>
+                <img src="assets/my_pic.png" alt="Julia Dolce Profile Picture">
             </div>
             <div class="about-text">
                 <h2>About Me</h2>
@@ -402,9 +408,7 @@
                     </div>
                 </div>
                 <div class="static-graph-frame">
-                    <object data="assets/mr.pdf" type="application/pdf">
-                        <embed src="assets/mr.pdf" type="application/pdf" />
-                    </object>
+                    <img src="assets/mr.png" alt="Mendelian Randomization Outcome Trait Categories Visual Plot">
                 </div>
             </div>
             
@@ -434,9 +438,7 @@
                     </div>
                 </div>
                 <div class="static-graph-frame">
-                    <object data="assets/kds1.pdf" type="application/pdf">
-                        <embed src="assets/kds1.pdf" type="application/pdf" />
-                    </object>
+                    <img src="assets/kds1.png" alt="Price vs Mileage Scatter Plot Distribution by Archetype Cluster">
                 </div>
             </div>
 
@@ -448,13 +450,11 @@
                         This architectural system summary details the structural design of a transactional database schema constructed in PostgreSQL to accurately model highly volatile live event ticketing frameworks. By building complex primary and foreign key mapping dependencies across user lists, artist classifications, capacities, and venue regions, the database implements automated referential data integrity protections. Crucially, the engine programs strict structural isolation limits and conditional triggers via PL/pgSQL procedural definitions to prevent database session locking collisions, manage seat charts dynamically, and enforce multi-session execution thresholds safely.
                     </p>
                     <div class="btn-group">
-                        <a class="paper-link" href="documents/ticketmaster_sample.sql" target="_blank">View SQL Script</a>
+                        <a class="paper-link" href="documents/ticketmaster_sample.sql" target="_blank">View SQL Snippet</a>
                     </div>
                 </div>
                 <div class="static-graph-frame">
-                    <object data="assets/kds2.pdf" type="application/pdf">
-                        <embed src="assets/kds2.pdf" type="application/pdf" />
-                    </object>
+                    <img src="assets/kds2.png" alt="High Dimensional Document Embedding Cluster Projection Map">
                 </div>
             </div>
 
@@ -464,11 +464,14 @@
             <h2>Interactive Media & Creative Works</h2>
             <div class="game-showcase">
                 <div class="game-frame">
-                    <iframe src="https://html5.itch.zone/html5-embed/12396495/2840502" title="Farewell Game Build View" allowfullscreen></iframe>
+                    <img src="assets/gameplay1.png" alt="Farewell Videogame Play Scene Snapshot">
                 </div>
                 <div class="animation-sidecar">
-                    <img src="assets/Tufts2024fall_Farewell_anim.gif" alt="Farewell Walking Sprite Animation Sheet Sample">
-                    <span>Farewell</span>
+                    <div class="game-meta-box">
+                        <img src="assets/Tufts2024fall_Farewell_anim.gif" alt="Farewell Walking Sprite Animation">
+                        <span>Farewell</span>
+                        <a class="paper-link" href="https://team10farewell.itch.io/farewell" target="_blank" style="margin-top: 0.5rem;">Go to Website</a>
+                    </div>
                 </div>
             </div>
         </section>
