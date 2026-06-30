@@ -1,0 +1,9 @@
+numpy
+pandas
+requests
+websockets
+matplotlib
+seaborn
+scikit-learn
+statsmodels
+py-clob-client
