@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julia Dolce | Research & Projects Index</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #3d4146; /* Deep slate gray from your inspiration layout */
+            --text-light: #ffffff;
+            --text-muted: #bdc3c7;
+            --accent-border: rgba(255, 255, 255, 0.2);
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Plus Jakarta Sans', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .brand-title {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--accent-border);
+        }
+
+        .social-icons a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .social-icons a:hover {
+            opacity: 1;
+        }
+
+        /* Hero Layout with Embedded Game Container */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--accent-border);
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 480px;
+        }
+
+        /* Interactive Game Canvas + Companion Box */
+        .game-showcase {
+            display: flex;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.2rem;
+            border-radius: 4px;
+            border: 1px solid var(--accent-border);
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .game-frame {
+            flex: 2.5;
+            background: #1a1a1a;
+            aspect-ratio: 4/3;
+            border-radius: 2px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .game-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .animation-sidecar {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-left: 1px solid var(--accent-border);
+            padding-left: 1rem;
+        }
+
+        .animation-sidecar img {
+            width: 100%;
+            max-width: 110px;
+            height: auto;
+            image-rendering: pixelated;
+        }
+
+        .animation-sidecar span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        /* Academic / Papers Section */
+        .papers-section {
+            padding: 5rem 0;
+        }
+
+        .papers-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .paper-entry {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .paper-entry:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .paper-meta {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .paper-entry h3 {
+            font-size: 1.8rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            max-width: 900px;
+        }
+
+        .paper-abstract {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            text-align: justify;
+            margin-bottom: 1.5rem;
+            max-width: 850px;
+        }
+
+        /* Styled button link to open local PDF file */
+        .paper-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: 1px solid var(--text-light);
+            padding: 0.6rem 1.5rem;
+            border-radius: 20px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .paper-link:hover {
+            background-color: var(--text-light);
+            color: var(--bg-color);
+        }
+
+        /* Footer Elements */
+        footer {
+            border-top: 1px solid var(--accent-border);
+            padding: 3rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <div class="brand-title" style="font-size: 1.2rem; letter-spacing: 0.5px; text-transform: none;">Julia Dolce</div>
+            <div class="social-icons">
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="mailto:juliadolce@example.com">Email</a>
+            </div>
+        </header>
+
+        <section class="hero-section">
+            <div class="hero-text">
+                <h1>Hello, welcome to my portfolio.</h1>
+                <p>
+                    An index of selected academic manuscripts, algorithmic data science frameworks, and collaborative installations.
+                </p>
+            </div>
+            
+            <div class="game-showcase">
+                <div class="game-frame">
+                    <iframe src="https://team10farewell.itch.io/farewell" title="Farewell Game Window"></iframe>
+                </div>
+                <div class="animation-sidecar">
+                    <img src="assets/Tufts2024fall_Farewell_anim.gif" alt="Farewell Animation Box">
+                    <span>Farewell</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="papers-section">
+            <h2>Selected Research & Manuscripts</h2>
+            
+            <div class="paper-entry">
+                <div class="paper-meta">Empirical FinTech & Market Microstructure</div>
+                <h3>To What Extent Does Market Categorization and Volatility Influence the Degree of Price Inefficiency in Prediction Markets?</h3>
+                <div class="paper-abstract">
+                    This paper investigates the conditions under which decentralized prediction platforms exhibit structural anomalies. Using a real-time live WebSocket pipeline querying high-frequency limit order books from the Polymarket API, a dataset comprising 1,159,154 rows of bid-ask updates tracking 294 asset ecosystems was collected. Shifting the research framework from a strict binary arbitrage detection criteria to a continuous variable tracking deviations from pricing parity, we mitigate class evaluation imbalances across multiple platform divisions. By training an optimized 400-tree Stratified Random Forest Regressor framework across high-dimensional volatility metrics, we isolate strong deterministic trends in price discovery, proving that lower liquidity thresholds and staggered information transfer parameters allow pop culture markets to retain significantly higher persistent inefficiency scores.
+                </div>
+                <a class="paper-link" href="documents/prediction_market_capstone.pdf" target="_blank">Read Full Paper</a>
+            </div>
+
+            <div class="paper-entry">
+                <div class="paper-meta">Manifold Learning & High-Dimensional Tabular Forecasting</div>
+                <h3>K-Deep Simplex a Local Dictionary and Sparse Learning Algorithm: Application for Price Prediction of Used Cars</h3>
+                <div class="paper-abstract">
+                    Supervised regression tasks mapping heterogeneous features present unique statistical extraction and downstream interpretability hurdles. This study provides a rigorous quantitative framework benchmarking traditional linear dimension compression models like Principal Component Analysis (PCA) and parts-based Non-Negative Matrix Factorization (NMF) against a state-of-the-art sparse dictionary alternative, K-Deep Simplex (KDS). Evaluated across a parsed dataset of 425,000 tabular vehicle records, we apply k-means clustering strategies to construct local archetype indices alongside Kraemer's algorithm to compute probability vector paths across bounded simplex dimensions. Downstream evaluation using Gradient-Boosting Regressors demonstrates that KDS isolates descriptive, intuitive variable associations without degrading global pricing predictive performance metrics, delivering a superior accuracy-interpretability balance.
+                </div>
+                <a class="paper-link" href="documents/k_deep_simplex_paper.pdf" target="_blank">Read Full Paper</a>
+            </div>
+
+            <div class="paper-entry">
+                <div class="paper-meta">Relational Systems & Relational Optimization</div>
+                <h3>Relational Architecture Implementation for High-Concurrency Live Ticketing Systems</h3>
+                <div class="paper-abstract">
+                    This system
