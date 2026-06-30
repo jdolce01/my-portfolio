@@ -4,24 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Julia Dolce | Research & Technical Portfolio</title>
-    <!-- Google Fonts for an elegant, publication-style look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #3d4146; /* Slate gray visual identity */
-            --text-light: #ffffff;
-            --text-muted: #bdc3c7;
-            --accent-border: rgba(255, 255, 255, 0.2);
+            --bg-color: #fcfcfc; /* Bright off-white background matching the new layout inspiration */
+            --text-dark: #2c3e50; /* Charcoal text color for readability */
+            --text-muted: #7f8c8d; /* Muted gray for meta markers and abstracts */
+            --accent-border: #e2e8f0; /* Crisp, light borders between page elements */
             --font-serif: 'Playfair Display', Georgia, serif;
             --font-sans: 'Plus Jakarta Sans', Helvetica, Arial, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-light);
+            color: var(--text-dark);
             font-family: var(--font-sans);
             margin: 0;
             padding: 0;
@@ -29,6 +28,7 @@
         }
 
         h1, h2, h3, .brand-title {
+            color: var(--text-dark);
             font-family: var(--font-serif);
             font-weight: 700;
             margin: 0 0 1rem 0;
@@ -48,21 +48,29 @@
             border-bottom: 1px solid var(--accent-border);
         }
 
+        .brand-title {
+            font-weight: 700;
+            color: #d39e24; /* Warm golden-amber accent color inspired by the navigation text signature */
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
         .social-icons a {
-            color: var(--text-light);
+            color: var(--text-dark);
             text-decoration: none;
             margin-left: 1.5rem;
             font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            opacity: 0.8;
+            font-weight: 500;
+            opacity: 0.7;
             transition: opacity 0.2s;
         }
 
         .social-icons a:hover {
             opacity: 1;
+            color: #d39e24;
         }
 
-        /* Hero Text Area Style */
+        /* Hero Text Style Area */
         .hero-section {
             padding: 5rem 0 3rem 0;
             border-bottom: 1px solid var(--accent-border);
@@ -72,6 +80,7 @@
             font-size: 3.5rem;
             line-height: 1.1;
             margin-bottom: 1.5rem;
+            letter-spacing: -1px;
         }
 
         .hero-text p {
@@ -81,7 +90,7 @@
             line-height: 1.5;
         }
 
-        /* About Me Layout Style */
+        /* About Me Section Grid Layout */
         .about-section {
             display: grid;
             grid-template-columns: 0.7fr 1.3fr;
@@ -95,9 +104,11 @@
             width: 100%;
             aspect-ratio: 4/5;
             border: 1px solid var(--accent-border);
-            border-radius: 2px;
+            border-radius: 4px;
             overflow: hidden;
-            background: rgba(255,255,255,0.02);
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            pointer-events: none; /* Disables right-click, zooming, and scrolling on the static file container */
         }
 
         .profile-frame object, .profile-frame embed {
@@ -109,16 +120,18 @@
         .about-text h2 {
             font-size: 2.2rem;
             margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
         }
 
         .about-text p {
-            color: var(--text-muted);
+            color: var(--text-dark);
             font-size: 1.1rem;
             margin-bottom: 1.2rem;
             text-align: justify;
+            opacity: 0.9;
         }
 
-        /* Manuscripts & Research Index Style */
+        /* Manuscripts & Research Grid Entries */
         .papers-section {
             padding: 5rem 0 3rem 0;
         }
@@ -126,15 +139,25 @@
         .papers-section h2 {
             font-size: 2.5rem;
             margin-bottom: 4rem;
+            letter-spacing: -0.5px;
         }
 
-        .paper-entry {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 3rem;
-            margin-bottom: 3rem;
+        .paper-card {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr; /* Two-column card balancing abstract with static graph */
+            gap: 4rem;
+            border-bottom: 1px solid var(--accent-border);
+            padding-bottom: 4rem;
+            margin-bottom: 4rem;
+            align-items: center;
         }
 
-        .paper-entry:last-child {
+        /* Full width card modifier for single-column text assets */
+        .paper-card.full-width {
+            grid-template-columns: 1fr;
+        }
+
+        .paper-card:last-child {
             border-bottom: 1px solid var(--accent-border);
             padding-bottom: 4rem;
             margin-bottom: 0;
@@ -144,11 +167,12 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: var(--text-muted);
+            color: #d39e24; /* Accent color highlighting topic taxonomy tag */
+            font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
-        .paper-entry h3 {
+        .paper-card h3 {
             font-size: 1.8rem;
             line-height: 1.2;
             margin-bottom: 1rem;
@@ -156,14 +180,33 @@
         }
 
         .paper-abstract {
-            color: var(--text-muted);
+            color: var(--text-dark);
             font-size: 1.05rem;
             text-align: justify;
             margin-bottom: 1.5rem;
-            max-width: 850px;
+            opacity: 0.85;
         }
 
-        /* Button Action Links */
+        /* Static PDF Plot Ingestion Frame */
+        .static-graph-frame {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border: 1px solid var(--accent-border);
+            border-radius: 4px;
+            overflow: hidden;
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            pointer-events: none; /* Completely locks the element, stripping zoom/scroll capabilities */
+            user-select: none;
+        }
+
+        .static-graph-frame object, .static-graph-frame embed {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Action Link Buttons */
         .btn-group {
             display: flex;
             gap: 1rem;
@@ -172,33 +215,33 @@
         .paper-link {
             display: inline-flex;
             align-items: center;
-            color: var(--text-light);
+            color: var(--text-dark);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 600;
-            border: 1px solid var(--text-light);
+            border: 1px solid var(--text-dark);
             padding: 0.5rem 1.4rem;
             border-radius: 20px;
-            transition: background-color 0.2s, color 0.2s;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
         }
 
         .paper-link:hover {
-            background-color: var(--text-light);
+            background-color: var(--text-dark);
             color: var(--bg-color);
         }
 
         .paper-link.secondary {
-            border-color: rgba(255, 255, 255, 0.4);
+            border-color: rgba(0, 0, 0, 0.2);
             color: var(--text-muted);
         }
 
         .paper-link.secondary:hover {
-            border-color: var(--text-light);
-            color: var(--text-light);
+            border-color: var(--text-dark);
+            color: var(--text-dark);
             background-color: transparent;
         }
 
-        /* Interactive Showcase Section */
+        /* Interactive Showcase Footer Area (Shifted to End) */
         .game-section {
             padding: 4rem 0 6rem 0;
         }
@@ -206,17 +249,19 @@
         .game-section h2 {
             font-size: 2.2rem;
             margin-bottom: 2rem;
+            letter-spacing: -0.5px;
         }
 
         .game-showcase {
             display: grid;
             grid-template-columns: 1.4fr 0.6fr;
-            background: rgba(255, 255, 255, 0.03);
+            background: #ffffff;
             padding: 1.5rem;
             border-radius: 4px;
             border: 1px solid var(--accent-border);
             gap: 2rem;
             align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
 
         .game-frame {
@@ -224,7 +269,7 @@
             aspect-ratio: 16/9;
             border-radius: 2px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--accent-border);
         }
 
         .game-frame iframe {
@@ -260,7 +305,7 @@
             font-weight: 600;
         }
 
-        /* Footer Style Rules */
+        /* Footer Structural Boundaries */
         footer {
             border-top: 1px solid var(--accent-border);
             padding: 3rem 0;
@@ -272,12 +317,17 @@
         }
 
         footer a {
-            color: var(--text-light);
+            color: var(--text-dark);
             text-decoration: none;
+            font-weight: 500;
+        }
+        
+        footer a:hover {
+            color: #d39e24;
         }
 
         @media (max-width: 900px) {
-            .about-section, .game-showcase {
+            .about-section, .paper-card, .game-showcase {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
             }
@@ -302,27 +352,24 @@
 
     <div class="container">
         
-        <!-- HEADER TOP NAVIGATION -->
         <header>
-            <div class="brand-title" style="font-size: 1.2rem; letter-spacing: 0.5px; text-transform: none;">Julia Dolce</div>
+            <div class="brand-title">Rebecca W. Chan style / Julia Dolce</div>
             <div class="social-icons">
-                <a href="https://github.com/jdolce01/my-portfolio" target="_blank">GitHub Profile</a>
+                <a href="https://github.com/jdolce01/my-portfolio" target="_blank">GitHub</a>
                 <a href="https://linkedin.com" target="_blank">LinkedIn</a>
                 <a href="mailto:juliadolce@example.com">Email</a>
             </div>
         </header>
 
-        <!-- HERO INTRODUCTORY SPLIT SECTION -->
         <section class="hero-section">
             <div class="hero-text">
                 <h1>Hello, welcome to my portfolio.</h1>
                 <p>
-                    An index of peer-reviewed biomedical manuscripts, empirical data science frameworks, and relational system architectures[cite: 1, 3, 4].
+                    An index of peer-reviewed biomedical manuscripts, empirical data science frameworks, and relational system architectures.
                 </p>
             </div>
         </section>
 
-        <!-- ABOUT ME PROFILE SECTION -->
         <section class="about-section">
             <div class="profile-frame">
                 <object data="assets/my_pic.pdf" type="application/pdf">
@@ -340,62 +387,79 @@
             </div>
         </section>
 
-        <!-- MAIN RESEARCH MANUSCRIPTS REGISTRY -->
         <section class="papers-section">
             <h2>Selected Research & Manuscripts</h2>
 
-            <!-- NEW PEER-REVIEWED ENTRY: Nature Genetics Co-Authored Paper -->
-            <div class="paper-entry">
-                <div class="paper-meta">Peer-Reviewed Publication | Nature Genetics</div>
-                <h3>Challenges and future directions for Mendelian randomization</h3>
-                <div class="paper-abstract">
-                    Served as a contributing author on this collaborative review examining the evolving methodologies, structural constraints, and causal inference limitations within modern Mendelian randomization (MR) frameworks[cite: 1]. Contributed directly to the pre-publication pipeline by coordinating primary data collection workloads and establishing data aggregation protocols[cite: 4]. Designed clear, high-impact data visualizations to communicate complex statistical boundaries and causal frameworks effectively for peer-reviewed distribution[cite: 4].
+            <div class="paper-card">
+                <div class="paper-text">
+                    <div class="paper-meta">Peer-Reviewed Publication | Nature Genetics</div>
+                    <h3>Challenges and future directions for Mendelian randomization</h3>
+                    <p class="paper-abstract">
+                        Served as a contributing author on this collaborative review examining the evolving methodologies, structural constraints, and causal inference limitations within modern Mendelian randomization (MR) frameworks. Contributed directly to the pre-publication pipeline by coordinating primary data collection workloads and establishing data aggregation protocols. Designed clear, high-impact data visualizations to communicate complex statistical boundaries and causal frameworks effectively for peer-reviewed distribution.
+                    </p>
+                    <div class="btn-group">
+                        <a class="paper-link" href="https://www.nature.com/articles/s41588-026-02546-6" target="_blank">View Article on Nature</a>
+                    </div>
                 </div>
-                <div class="btn-group">
-                    <a class="paper-link" href="https://www.nature.com/articles/s41588-026-02546-6" target="_blank">View Article on Nature</a>
+                <div class="static-graph-frame">
+                    <object data="assets/mr.pdf" type="application/pdf">
+                        <embed src="assets/mr.pdf" type="application/pdf" />
+                    </object>
                 </div>
             </div>
             
-            <!-- ENTRY 2: Polymarket API Analysis -->
-            <div class="paper-entry">
-                <div class="paper-meta">Empirical FinTech & Market Microstructure</div>
-                <h3>To What Extent Does Market Categorization and Volatility Influence the Degree of Price Inefficiency in Prediction Markets?</h3>
-                <div class="paper-abstract">
-                    This paper investigates the conditions under which decentralized prediction platforms exhibit structural anomalies[cite: 4]. Using a real-time live WebSocket pipeline querying high-frequency limit order books from the Polymarket API, a dataset comprising 1,159,154 rows of bid-ask updates tracking 294 asset ecosystems was collected[cite: 4]. Shifting the research framework from strict binary arbitrage detection criteria to a continuous variable tracking deviations from pricing parity, we mitigate class evaluation imbalances across multiple platform divisions[cite: 4]. By training an optimized 400-tree Stratified Random Forest Regressor framework across high-dimensional volatility metrics, we isolate strong deterministic trends in price discovery, proving that lower liquidity thresholds and staggered information transfer parameters allow pop culture markets to retain significantly higher persistent inefficiency scores[cite: 4].
-                </div>
-                <div class="btn-group">
-                    <a class="paper-link" href="documents/prediction_market_capstone.pdf" target="_blank">Read Full Paper</a>
-                    <a class="paper-link secondary" href="https://github.com/jdolce01/my-portfolio/tree/main/polymarket_codebase" target="_blank">View Python Codebase</a>
-                </div>
-            </div>
-
-            <!-- ENTRY 3: K-Deep Simplex Comparison Framework -->
-            <div class="paper-entry">
-                <div class="paper-meta">Manifold Learning & High-Dimensional Tabular Forecasting</div>
-                <h3>K-Deep Simplex a Local Dictionary and Sparse Learning Algorithm: Application for Price Prediction of Used Cars</h3>
-                <div class="paper-abstract">
-                    Supervised regression tasks mapping heterogeneous features present unique statistical extraction and downstream interpretability hurdles. This study provides a rigorous quantitative framework benchmarking traditional linear dimension compression models like Principal Component Analysis (PCA) and parts-based Non-Negative Matrix Factorization (NMF) against a state-of-the-art sparse dictionary alternative, K-Deep Simplex (KDS). Evaluated across a parsed dataset of 425,000 tabular vehicle records, we apply k-means clustering strategies to construct local archetype indices alongside Kraemer's algorithm to compute probability vector paths across bounded simplex dimensions. Downstream evaluation using Gradient-Boosting Regressors demonstrates that KDS isolates descriptive, intuitive variable associations without degrading global pricing predictive performance metrics, delivering a superior accuracy-interpretability balance.
-                </div>
-                <div class="btn-group">
-                    <a class="paper-link" href="documents/k_deep_simplex_paper.pdf" target="_blank">Read Full Paper</a>
+            <div class="paper-card full-width">
+                <div class="paper-text">
+                    <div class="paper-meta">Empirical FinTech & Market Microstructure</div>
+                    <h3>To What Extent Does Market Categorization and Volatility Influence the Degree of Price Inefficiency in Prediction Markets?</h3>
+                    <p class="paper-abstract">
+                        This paper investigates the conditions under which decentralized prediction platforms exhibit structural anomalies. Using a real-time live WebSocket pipeline querying high-frequency limit order books from the Polymarket API, a dataset comprising 1,159,154 rows of bid-ask updates tracking 294 asset ecosystems was collected. Shifting the research framework from strict binary arbitrage detection criteria to a continuous variable tracking deviations from pricing parity, we mitigate class evaluation imbalances across multiple platform divisions. By training an optimized 400-tree Stratified Random Forest Regressor framework across high-dimensional volatility metrics, we isolate strong deterministic trends in price discovery, proving that lower liquidity thresholds and staggered information transfer parameters allow pop culture markets to retain significantly higher persistent inefficiency scores.
+                    </p>
+                    <div class="btn-group">
+                        <a class="paper-link" href="documents/prediction_market_capstone.pdf" target="_blank">Read Full Paper</a>
+                        <a class="paper-link secondary" href="https://github.com/jdolce01/my-portfolio/tree/main/polymarket_codebase" target="_blank">View Python Codebase</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- ENTRY 4: PostgreSQL Database System Design -->
-            <div class="paper-entry">
-                <div class="paper-meta">Relational Infrastructure & Database Concurrency</div>
-                <h3>Relational Architecture Implementation for High-Concurrency Live Ticketing Systems</h3>
-                <div class="paper-abstract">
-                    This architectural system summary details the structural design of a transactional database schema constructed in PostgreSQL to accurately model highly volatile live event ticketing frameworks. By building complex primary and foreign key mapping dependencies across user lists, artist classifications, capacities, and venue regions, the database implements automated referential data integrity protections. Crucially, the engine programs strict structural isolation limits and conditional triggers via PL/pgSQL procedural definitions to prevent database session locking collisions, manage seat charts dynamically, and enforce multi-session execution thresholds safely.
+            <div class="paper-card">
+                <div class="paper-text">
+                    <div class="paper-meta">Manifold Learning & High-Dimensional Tabular Forecasting</div>
+                    <h3>K-Deep Simplex a Local Dictionary and Sparse Learning Algorithm: Application for Price Prediction of Used Cars</h3>
+                    <p class="paper-abstract">
+                        Supervised regression tasks mapping heterogeneous features present unique statistical extraction and downstream interpretability hurdles. This study provides a rigorous quantitative framework benchmarking traditional linear dimension compression models like Principal Component Analysis (PCA) and parts-based Non-Negative Matrix Factorization (NMF) against a state-of-the-art sparse dictionary alternative, K-Deep Simplex (KDS). Evaluated across a parsed dataset of 425,000 tabular vehicle records, we apply k-means clustering strategies to construct local archetype indices alongside Kraemer's algorithm to compute probability vector paths across bounded simplex dimensions. Downstream evaluation using Gradient-Boosting Regressors demonstrates that KDS isolates descriptive, intuitive variable associations without degrading global pricing predictive performance metrics, delivering a superior accuracy-interpretability balance.
+                    </p>
+                    <div class="btn-group">
+                        <a class="paper-link" href="documents/k_deep_simplex_paper.pdf" target="_blank">Read Full Paper</a>
+                    </div>
                 </div>
-                <div class="btn-group">
-                    <a class="paper-link" href="documents/ticketmaster_sample.sql" target="_blank">View SQL Script</a>
+                <div class="static-graph-frame">
+                    <object data="assets/kds1.pdf" type="application/pdf">
+                        <embed src="assets/kds1.pdf" type="application/pdf" />
+                    </object>
+                </div>
+            </div>
+
+            <div class="paper-card">
+                <div class="paper-text">
+                    <div class="paper-meta">Relational Infrastructure & Database Concurrency</div>
+                    <h3>Relational Architecture Implementation for High-Concurrency Live Ticketing Systems</h3>
+                    <p class="paper-abstract">
+                        This architectural system summary details the structural design of a transactional database schema constructed in PostgreSQL to accurately model highly volatile live event ticketing frameworks. By building complex primary and foreign key mapping dependencies across user lists, artist classifications, capacities, and venue regions, the database implements automated referential data integrity protections. Crucially, the engine programs strict structural isolation limits and conditional triggers via PL/pgSQL procedural definitions to prevent database session locking collisions, manage seat charts dynamically, and enforce multi-session execution thresholds safely.
+                    </p>
+                    <div class="btn-group">
+                        <a class="paper-link" href="documents/ticketmaster_sample.sql" target="_blank">View SQL Script</a>
+                    </div>
+                </div>
+                <div class="static-graph-frame">
+                    <object data="assets/kds2.pdf" type="application/pdf">
+                        <embed src="assets/kds2.pdf" type="application/pdf" />
+                    </object>
                 </div>
             </div>
 
         </section>
 
-        <!-- VIDEO GAME SHOWCASE INTEGRATION -->
         <section class="game-section">
             <h2>Interactive Media & Creative Works</h2>
             <div class="game-showcase">
@@ -409,7 +473,6 @@
             </div>
         </section>
 
-        <!-- WEBSITE FOOTER BAR -->
         <footer>
             <div>&copy; 2026 Julia Dolce. All rights reserved.</div>
             <div>Hosted on <a href="https://aws.amazon.com/amplify/" target="_blank">AWS Amplify</a></div>
