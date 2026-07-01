@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Julia Dolce | Research & Technical Portfolio</title>
+    <!-- Google Fonts for an elegant, crisp minimalist layout -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
@@ -150,6 +151,13 @@
             padding-bottom: 4rem;
             margin-bottom: 4rem;
             align-items: center;
+        }
+
+        /* Double graph grid wrapper inside a single card cell */
+        .double-graph-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
 
         /* Full width card modifier for single-column text assets */
@@ -360,15 +368,18 @@
 
     <div class="container">
         
+        <!-- HEADER TOP NAVIGATION -->
         <header>
             <div class="brand-title">Julia Dolce</div>
             <div class="social-icons">
+                <a href="assets/resume.png" target="_blank" style="color: #d39e24; font-weight: 600;">View Resume</a>
                 <a href="https://github.com/jdolce01/my-portfolio" target="_blank">GitHub</a>
-                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-                <a href="mailto:juliadolce@example.com">Email</a>
+                <a href="https://www.linkedin.com/in/julia-dolce-604346271" target="_blank">LinkedIn</a>
+                <a href="mailto:juliaedolce@gmail.com">Email</a>
             </div>
         </header>
 
+        <!-- HERO INTRODUCTORY SECTION -->
         <section class="hero-section">
             <div class="hero-text">
                 <h1>Hello, welcome to my portfolio.</h1>
@@ -378,6 +389,7 @@
             </div>
         </section>
 
+        <!-- ABOUT ME PROFILE SECTION -->
         <section class="about-section">
             <div class="profile-frame">
                 <img src="assets/my_pic.png" alt="Julia Dolce Profile Picture">
@@ -393,15 +405,17 @@
             </div>
         </section>
 
+        <!-- MAIN RESEARCH MANUSCRIPTS REGISTRY -->
         <section class="papers-section">
             <h2>Selected Research & Manuscripts</h2>
 
+            <!-- ENTRY 1: Nature Genetics Publication paired with mr.png image -->
             <div class="paper-card">
                 <div class="paper-text">
                     <div class="paper-meta">Peer-Reviewed Publication | Nature Genetics</div>
                     <h3>Challenges and future directions for Mendelian randomization</h3>
                     <p class="paper-abstract">
-                        Served as a contributing author on this collaborative review examining the evolving methodologies, structural constraints, and causal inference limitations within modern Mendelian randomization (MR) frameworks. Contributed directly to the pre-publication pipeline by coordinating primary data collection workloads and establishing data aggregation protocols. Designed clear, high-impact data visualizations to communicate complex statistical boundaries and causal frameworks effectively for peer-reviewed distribution.
+                        Served as a contributing author on this collaborative review examining the evolving methodologies, structural constraints, and causal inference limitations within modern Mendelian randomization (MR) frameworks[cite: 1]. Contributed directly to the pre-publication pipeline by coordinating primary data collection workloads and establishing data aggregation protocols. Designed clear, high-impact data visualizations to communicate complex statistical boundaries and causal frameworks effectively for peer-reviewed distribution.
                     </p>
                     <div class="btn-group">
                         <a class="paper-link" href="https://www.nature.com/articles/s41588-026-02546-6" target="_blank">View Article on Nature</a>
@@ -412,6 +426,7 @@
                 </div>
             </div>
             
+            <!-- ENTRY 2: Polymarket API Analysis (Text Only Card) -->
             <div class="paper-card full-width">
                 <div class="paper-text">
                     <div class="paper-meta">Empirical FinTech & Market Microstructure</div>
@@ -426,23 +441,31 @@
                 </div>
             </div>
 
+            <!-- ENTRY 3: K-Deep Simplex Comparison Framework paired with BOTH kds1.png and kds2.png -->
             <div class="paper-card">
                 <div class="paper-text">
                     <div class="paper-meta">Manifold Learning & High-Dimensional Tabular Forecasting</div>
                     <h3>K-Deep Simplex a Local Dictionary and Sparse Learning Algorithm: Application for Price Prediction of Used Cars</h3>
                     <p class="paper-abstract">
-                        Supervised regression tasks mapping heterogeneous features present unique statistical extraction and downstream interpretability hurdles. This study provides a rigorous quantitative framework benchmarking traditional linear dimension compression models like Principal Component Analysis (PCA) and parts-based Non-Negative Matrix Factorization (NMF) against a state-of-the-art sparse dictionary alternative, K-Deep Simplex (KDS). Evaluated across a parsed dataset of 425,000 tabular vehicle records, we apply k-means clustering strategies to construct local archetype indices alongside Kraemer's algorithm to compute probability vector paths across bounded simplex dimensions. Downstream evaluation using Gradient-Boosting Regressors demonstrates that KDS isolates descriptive, intuitive variable associations without degrading global pricing predictive performance metrics, delivering a superior accuracy-interpretability balance.
+                        Supervised regression tasks mapping heterogeneous features present unique statistical extraction and downstream interpretability hurdles. This study provides a rigorous quantitative framework benchmarking traditional linear dimension compression models like Principal Box Component Analysis (PCA) and parts-based Non-Negative Matrix Factorization (NMF) against a state-of-the-art sparse dictionary alternative, K-Deep Simplex (KDS). Evaluated across a parsed dataset of 425,000 tabular vehicle records, we apply k-means clustering strategies to construct local archetype indices alongside Kraemer's algorithm to compute probability vector paths across bounded simplex dimensions. Downstream evaluation using Gradient-Boosting Regressors demonstrates that KDS isolates descriptive, intuitive variable associations without degrading global pricing predictive performance metrics, delivering a superior accuracy-interpretability balance.
                     </p>
                     <div class="btn-group">
                         <a class="paper-link" href="documents/k_deep_simplex_paper.pdf" target="_blank">Read Full Paper</a>
                     </div>
                 </div>
-                <div class="static-graph-frame">
-                    <img src="assets/kds1.png" alt="Price vs Mileage Scatter Plot Distribution by Archetype Cluster">
+                <!-- Column containing both associated KDS data plots next to the abstract text -->
+                <div class="double-graph-grid">
+                    <div class="static-graph-frame">
+                        <img src="assets/kds1.png" alt="Price vs Mileage Scatter Plot Distribution by Archetype Cluster">
+                    </div>
+                    <div class="static-graph-frame" style="margin-top: 1rem;">
+                        <img src="assets/kds2.png" alt="High Dimensional Document Embedding Cluster Projection Map">
+                    </div>
                 </div>
             </div>
 
-            <div class="paper-card">
+            <!-- ENTRY 4: PostgreSQL Database Design (Clean Full-Width Implementation) -->
+            <div class="paper-card full-width">
                 <div class="paper-text">
                     <div class="paper-meta">Relational Infrastructure & Database Concurrency</div>
                     <h3>Relational Architecture Implementation for High-Concurrency Live Ticketing Systems</h3>
@@ -453,18 +476,15 @@
                         <a class="paper-link" href="documents/ticketmaster_sample.sql" target="_blank">View SQL Snippet</a>
                     </div>
                 </div>
-                <div class="static-graph-frame">
-                    <img src="assets/kds2.png" alt="High Dimensional Document Embedding Cluster Projection Map">
-                </div>
             </div>
 
         </section>
-        
+
+        <!-- VIDEO GAME SHOWCASE INTEGRATION -->
         <section class="game-section">
             <h2>Interactive Media & Creative Works</h2>
             <div class="game-showcase">
                 <div class="game-frame">
-                    <!-- Fixed the image source name to match your file exactly -->
                     <img src="assets/gameplay1.png" alt="Farewell Videogame Play Scene Snapshot">
                 </div>
                 <div class="animation-sidecar">
@@ -477,6 +497,7 @@
             </div>
         </section>
 
+        <!-- WEBSITE FOOTER BAR -->
         <footer>
             <div>&copy; 2026 Julia Dolce. All rights reserved.</div>
             <div>Hosted on <a href="https://aws.amazon.com/amplify/" target="_blank">AWS Amplify</a></div>
